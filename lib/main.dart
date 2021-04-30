@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         /*flexibleSpace: ClipRRect(
           borderRadius: BorderRadius.only(
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   CircleAvatar(
                     radius: 58,
                     backgroundColor: Colors.black87,
-                    backgroundImage: AssetImage("images/danodin.jpg"),
+                    backgroundImage: AssetImage("assets/images/danodin.jpg"),
                     /*NetworkImage(
                         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg"),*/
                   ),
@@ -118,7 +118,7 @@ class MyPage1Widget extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Image.asset(
-          "images/section_A.png",
+          "assets/images/section_A.png",
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
@@ -182,7 +182,7 @@ class MyPage2Widget extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Image.asset(
-          "images/section_A.png",
+          "assets/images/section_B.png",
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
@@ -220,19 +220,19 @@ class MyPage3Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> images = [
-      "images/skill1.png",
-      "images/skill2.png",
-      "images/skill3.png",
-      "images/skill4.png",
-      "images/skill5.png",
-      "images/skill6.png",
-      "images/skill7.png",
-      "images/skill8.png",
-      "images/skill9.png"
+      "assets/images/skill1.png",
+      "assets/images/skill2.png",
+      "assets/images/skill3.png",
+      "assets/images/skill4.png",
+      "assets/images/skill5.png",
+      "assets/images/skill6.png",
+      "assets/images/skill7.png",
+      "assets/images/skill8.png",
+      "assets/images/skill9.png"
     ];
     return Stack(children: <Widget>[
       Image.asset(
-        "images/section_A.png",
+        "assets/images/section_C.png",
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         fit: BoxFit.cover,
@@ -252,7 +252,7 @@ class MyPage3Widget extends StatelessWidget {
                 })),
       ),
       Container(
-        height: 600,
+        height: 800,
         width: 900,
         alignment: Alignment.bottomCenter,
         margin: EdgeInsets.only(left: 5, right: 5, top: 0),
@@ -277,138 +277,141 @@ class MyPage4Widget extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Image.asset(
-          "images/section_A.png",
+          "assets/images/section_D.png",
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
         SafeArea(
-          child: Column(
-            children: <Widget>[
-              Container(
-                height: 27,
-                width: 900,
-                alignment: Alignment.topCenter,
-                margin: EdgeInsets.only(left: 5, right: 5, top: 5),
-                child: Text(
-                  '',
-                  textAlign: TextAlign.center,
-                  textDirection: TextDirection.ltr,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+          child: Expanded(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 27,
+                  width: 900,
+                  alignment: Alignment.topCenter,
+                  margin: EdgeInsets.only(left: 5, right: 5, top: 120),
+                  child: Text(
+                    '',
+                    textAlign: TextAlign.center,
+                    textDirection: TextDirection.ltr,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              SizedBox(height: 20),
-              Card(
-                shadowColor: Colors.red,
-                elevation: 8,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.black87, Colors.black],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                SizedBox(height: 20),
+                Card(
+                  shadowColor: Colors.green,
+                  elevation: 3,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Container(
+                    width: 300,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black87, Colors.black],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const ListTile(
+                          leading:
+                              Icon(Icons.phone, size: 36, color: Colors.white),
+                          title: Text('+2348111774051',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          /*subtitle: Text('+2348111774051',
+                              style: TextStyle(color: Colors.white)),*/
+                        ),
+                      ],
                     ),
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const ListTile(
-                        leading:
-                            Icon(Icons.phone, size: 36, color: Colors.white),
-                        title: Text('+2348111774051',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        /*subtitle: Text('+2348111774051',
-                            style: TextStyle(color: Colors.white)),*/
-                      ),
-                    ],
+                ),
+                SizedBox(height: 21),
+                Card(
+                  shadowColor: Colors.green,
+                  elevation: 3,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                ),
-              ),
-              SizedBox(height: 21),
-              Card(
-                shadowColor: Colors.red,
-                elevation: 8,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.black87, Colors.black],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                  child: Container(
+                    width: 300,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black87, Colors.black],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const ListTile(
+                          leading: Icon(Icons.email_rounded,
+                              size: 36, color: Colors.white),
+                          title: Text('dpoxo@yandex.com',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          /*subtitle: Text(
+                              '',
+                              style: TextStyle(color: Colors.white)),*/
+                        ),
+                      ],
                     ),
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.email_rounded,
-                            size: 36, color: Colors.white),
-                        title: Text('dpoxo@yandex.com',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        /*subtitle: Text(
-                            '',
-                            style: TextStyle(color: Colors.white)),*/
-                      ),
-                    ],
+                ),
+                SizedBox(height: 20),
+                Card(
+                  shadowColor: Colors.green,
+                  elevation: 3,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Card(
-                shadowColor: Colors.red,
-                elevation: 8,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.black87, Colors.black],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                  child: Container(
+                    width: 300,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black87, Colors.black],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const ListTile(
+                          leading:
+                              Icon(Icons.web, size: 36, color: Colors.white),
+                          title: Text('flowcv.me/danodin',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          /*subtitle: Text('',
+                              style: TextStyle(color: Colors.white)),*/
+                        ),
+                      ],
                     ),
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.web, size: 36, color: Colors.white),
-                        title: Text('flowcv.me/danodin',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        /*subtitle: Text('',
-                            style: TextStyle(color: Colors.white)),*/
-                      ),
-                    ],
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
       ],

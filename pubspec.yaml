@@ -50,6 +50,9 @@ flutter:
       - assets/images/danodin.jpg
       - assets/images/section1.jpeg
       - assets/images/section_A.png
+      - assets/images/section_B.png
+      - assets/images/section_C.png
+      - assets/images/section_D.png
       - assets/images/skill1.png
       - assets/images/skill2.png
       - assets/images/skill3.png
