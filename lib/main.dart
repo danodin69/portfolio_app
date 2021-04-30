@@ -271,6 +271,7 @@ class PageFour extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(height: 90),
+              //Card One
               Card(
                 shadowColor: Colors.green,
                 elevation: 3,
@@ -305,6 +306,7 @@ class PageFour extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 21),
+              //Card Two
               Card(
                 shadowColor: Colors.green,
                 elevation: 3,
@@ -338,7 +340,8 @@ class PageFour extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 21),
+              //Card 3
               Card(
                 shadowColor: Colors.green,
                 elevation: 3,
