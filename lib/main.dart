@@ -1,5 +1,4 @@
-import 'dart:ui'; //remember to remove
-
+//My First Flutter App ^.^
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,36 +20,25 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+/*This is a page controller that lets me use multiple widget as pages 
+      *And scroll through them
+      *Source: Flutter PageView Widget*/
+
 class _MyHomePageState extends State<MyHomePage> {
   PageController controller = PageController(
     initialPage: 0,
   );
-
   @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
+/*An App bar in a scaffold with transparency, with an extension of app body
+ *Behind App bar set to true*/
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        /*flexibleSpace: ClipRRect(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(1), bottomRight: Radius.circular(1)),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('images/appbar.jpg'), fit: BoxFit.fill),
-            ),
-          ),
-        ),*/
         backgroundColor: Colors.transparent,
-
         elevation: 0.0,
         shadowColor: Colors.green,
-        //brightness: Brightness.dark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(5),
@@ -68,8 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     radius: 58,
                     backgroundColor: Colors.black87,
                     backgroundImage: AssetImage("assets/images/danodin.jpg"),
-                    /*NetworkImage(
-                        "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg"),*/
                   ),
                 ],
               ),
@@ -90,29 +76,28 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       extendBodyBehindAppBar: true,
+
+      /*Body with PageView using the controller i made earlier
+      *The direction in which user can scroll is set to vertical, and reversed
+      *It could be set to horizontal as well and the reverse set to true
+      *It has a ScrollPhyscis method to give it a cool bounce effect
+      *Source: Flutter PageView Widget*/
       body: PageView(
         controller: controller,
-        children: [
-          MyPage1Widget(),
-          MyPage2Widget(),
-          MyPage3Widget(),
-          MyPage4Widget()
-        ],
+        children: [PageOne(), PageTwo(), PageThree(), PageFour()],
         scrollDirection: Axis.vertical,
         reverse: true,
         physics: BouncingScrollPhysics(),
-        /*onPageChanged: (num){
-		setState(() {
-			_curr=num;
-		});
-    
-		},*/
       ),
     );
   }
 }
 
-class MyPage1Widget extends StatelessWidget {
+/*The pages are built on a stack I figured it will let me add background images
+ *.. so i can add other widget on top, freely
+ * Page 1 : extended from flutter layout tutorial, zuri
+ */
+class PageOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -158,15 +143,6 @@ class MyPage1Widget extends StatelessWidget {
                       color: Colors.grey,
                       fontStyle: FontStyle.italic),
                 ),
-                /*decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('images/section1.jpeg'),
-                        fit: BoxFit.cover),
-                    color: Colors.black87,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    )),*/
               ),
             ],
           ),
@@ -176,7 +152,9 @@ class MyPage1Widget extends StatelessWidget {
   }
 }
 
-class MyPage2Widget extends StatelessWidget {
+/*Page Two: Same as page one
+ */
+class PageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -216,10 +194,14 @@ class MyPage2Widget extends StatelessWidget {
   }
 }
 
-class MyPage3Widget extends StatelessWidget {
+/*Page Three: i researched on Gridview and was able to add images of my skills
+ *Into a grid, all it took was a list and for the grid view builder to check how
+ *..many items are in the list and make grids to contain them
+ * */
+class PageThree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> images = [
+    List<String> backgroundImages = [
       "assets/images/skill1.png",
       "assets/images/skill2.png",
       "assets/images/skill3.png",
@@ -241,14 +223,14 @@ class MyPage3Widget extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Container(
             child: GridView.builder(
-                itemCount: images.length,
+                itemCount: backgroundImages.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
-                  crossAxisSpacing: 50.0,
+                  crossAxisSpacing: 30.0,
                   mainAxisSpacing: 20.0,
                 ),
                 itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(images[index]);
+                  return Image.asset(backgroundImages[index]);
                 })),
       ),
       Container(
@@ -271,7 +253,10 @@ class MyPage3Widget extends StatelessWidget {
   }
 }
 
-class MyPage4Widget extends StatelessWidget {
+/*Page Four: Contained my contact infos and i decided to use cards to display
+ *.. My number, email, and little website which contains a link to my resume
+ *.. And social media. killing three birds with one Dart */
+class PageFour extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -283,135 +268,125 @@ class MyPage4Widget extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         SafeArea(
-          child: Expanded(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  height: 27,
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 90),
+              Card(
+                shadowColor: Colors.green,
+                elevation: 3,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  width: 300,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black87, Colors.black],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const ListTile(
+                        leading:
+                            Icon(Icons.phone, size: 36, color: Colors.white),
+                        title: Text('+2348111774051',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 21),
+              Card(
+                shadowColor: Colors.green,
+                elevation: 3,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  width: 300,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black87, Colors.black],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const ListTile(
+                        leading: Icon(Icons.email_rounded,
+                            size: 36, color: Colors.white),
+                        title: Text('dpoxo@yandex.com',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Card(
+                shadowColor: Colors.green,
+                elevation: 3,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  width: 300,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black87, Colors.black],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const ListTile(
+                        leading: Icon(Icons.web, size: 36, color: Colors.white),
+                        title: Text('flowcv.me/danodin',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  height: 150,
                   width: 900,
-                  alignment: Alignment.topCenter,
-                  margin: EdgeInsets.only(left: 5, right: 5, top: 120),
-                  child: Text(
-                    '',
-                    textAlign: TextAlign.center,
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
+                  alignment: Alignment.bottomCenter,
+                  margin: EdgeInsets.only(left: 5, right: 5, top: 5),
+                  child: Text('Contact me :)',
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic)),
                 ),
-                SizedBox(height: 20),
-                Card(
-                  shadowColor: Colors.green,
-                  elevation: 3,
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Container(
-                    width: 300,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black87, Colors.black],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const ListTile(
-                          leading:
-                              Icon(Icons.phone, size: 36, color: Colors.white),
-                          title: Text('+2348111774051',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          /*subtitle: Text('+2348111774051',
-                              style: TextStyle(color: Colors.white)),*/
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 21),
-                Card(
-                  shadowColor: Colors.green,
-                  elevation: 3,
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Container(
-                    width: 300,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black87, Colors.black],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const ListTile(
-                          leading: Icon(Icons.email_rounded,
-                              size: 36, color: Colors.white),
-                          title: Text('dpoxo@yandex.com',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          /*subtitle: Text(
-                              '',
-                              style: TextStyle(color: Colors.white)),*/
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Card(
-                  shadowColor: Colors.green,
-                  elevation: 3,
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Container(
-                    width: 300,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.black87, Colors.black],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const ListTile(
-                          leading:
-                              Icon(Icons.web, size: 36, color: Colors.white),
-                          title: Text('flowcv.me/danodin',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          /*subtitle: Text('',
-                              style: TextStyle(color: Colors.white)),*/
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         )
       ],
@@ -419,67 +394,21 @@ class MyPage4Widget extends StatelessWidget {
   }
 }
 
-/*class Pages extends StatelessWidget {
-final text;
-Pages({this.text});
-@override
-Widget build(BuildContext context) {
-return Center(
-	child: Column(
-		mainAxisAlignment: MainAxisAlignment.center,
-		children:<Widget>[
-		Text(
-      text,
-      textAlign: TextAlign.start,
-      style: 
-      TextStyle(
-			fontSize: 15,
-      fontWeight:FontWeight.bold, 
-      color: Colors.grey),
-      ),	
-		]
-	),
-	);
-}
-}*/
+/*
+Author: DanOdin
+Project: Portfolio App
+For: Zuri Training
+Genre: Information
+Product Type: Course task
+Date Written: 26-April-2021
+Date Completed: 30-April-2021
+Start Time - End Time: uNREGISTERED
+Tested on: Google Chrome
+------------------------------------
+NOTE: For my first app in flutter i had a lot of fun and headaches. 
+This is a non-complex yet creative portfolio app built using flutter widgets and
+knowledge on layout with just the material import along with
+its very helpful(Flutter)documentation and teacher Abbie at Zuri. 
+- Grateful
+*/
 
-const lightBlue = Color(0xff00bbff);
-const mediumBlue = Color(0xff00a2fc);
-const darkBlue = Color(0xff0075c9);
-
-final lightGreen = Colors.green.shade300;
-final mediumGreen = Colors.green.shade600;
-final darkGreen = Colors.green.shade900;
-
-final lightRed = Colors.red.shade300;
-final mediumRed = Colors.red.shade600;
-final darkRed = Colors.red.shade900;
-
-class MyBox extends StatelessWidget {
-  final Color color;
-  final double height;
-  final String text;
-  MyBox(this.color, {this.height, this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(10),
-        color: color,
-        height: (height == null) ? 150 : height,
-        child: (text == null)
-            ? null
-            : Center(
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-      ),
-    );
-  }
-}
