@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       /*Body with PageView using the controller i made earlier
       *The direction in which user can scroll is set to vertical, and reversed
-      *It could be set to horizontal as well and the reverse set to true
+      *It could be set to horizontal as well and the reverse set to false
       *It has a ScrollPhyscis method to give it a cool bounce effect
       *Source: Flutter PageView Widget*/
       body: PageView(
