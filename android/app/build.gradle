@@ -28,13 +28,29 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 30
 
+<<<<<<< HEAD
+=======
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+<<<<<<< HEAD
         applicationId "com.example.portfolio_app"
+=======
+        applicationId "com.example.e_mechanics"
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
