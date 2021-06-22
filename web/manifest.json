@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "portfolio_app",
     "short_name": "portfolio_app",
+=======
+    "name": "e_mechanics",
+    "short_name": "e_mechanics",
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

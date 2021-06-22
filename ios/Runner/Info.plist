@@ -11,7 +11,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
 	<string>portfolio_app</string>
+=======
+	<string>e_mechanics</string>
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

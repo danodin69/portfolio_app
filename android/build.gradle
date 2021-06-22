@@ -2,7 +2,11 @@ buildscript {
     ext.kotlin_version = '1.3.50'
     repositories {
         google()
+<<<<<<< HEAD
         jcenter()
+=======
+        mavenCentral()
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
     }
 
     dependencies {
@@ -14,15 +18,22 @@ buildscript {
 allprojects {
     repositories {
         google()
+<<<<<<< HEAD
         jcenter()
+=======
+        mavenCentral()
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
     }
 }
 
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+<<<<<<< HEAD
 }
 subprojects {
+=======
+>>>>>>> 4b7e1399790bacd48c98696cbd43060ece5f7a1d
     project.evaluationDependsOn(':app')
 }
 
