@@ -16,6 +16,4 @@ Only for mobile!
 
 Author:[Dan Odin] 
 
-(Dan Phil Odin X.O ~ [ dpoxo ])
-
 
